@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeatherData } from '../redux/weatherSlice';
 import { RootState, AppDispatch } from '../redux/store';
 import "admin-lte/dist/css/adminlte.min.css";
+
 const WeatherButton: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const weather = useSelector((state: RootState) => state.weather);
