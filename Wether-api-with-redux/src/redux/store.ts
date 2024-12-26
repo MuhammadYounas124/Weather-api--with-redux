@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import weatherReducer from './weatherSlice';
-import "admin-lte/dist/css/adminlte.min.css";
+
 
 const store = configureStore({
   reducer: {

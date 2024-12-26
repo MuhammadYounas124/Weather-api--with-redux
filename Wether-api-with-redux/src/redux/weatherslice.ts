@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import "admin-lte/dist/css/adminlte.min.css";
+
 
 type WeatherState = {
   pakistan: any | null;
