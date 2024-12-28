@@ -1,13 +1,15 @@
-import WeatherButton from './weather-components/weather-button';
-import 'admin-lte/dist/css/adminlte.min.css';
-
+import "admin-lte/dist/css/adminlte.min.css";
+import Weather from './weather-components/weather-button';
 
 const App = () => {
   return (
     <div>
-      <WeatherButton />
+      <Weather />
     </div>
   );
 };
 
 export default App;
+
+
+
