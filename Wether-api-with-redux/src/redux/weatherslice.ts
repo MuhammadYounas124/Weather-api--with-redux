@@ -68,9 +68,12 @@ export const fetchWeatherData = createAsyncThunk(
 );
 
 interface WeatherState {
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  status: 'idle' | 'loading' | 'succeeded' | 'failed'; 
+  // Represents the current state of the API call (e.g., idle before request, loading during fetch, 
+  // succeeded after data is received, or failed in case of an error).
   currentWeather: { temp: number; description: string; icon: string } | null;
-  time: string | null;
+  //  Holds the current weather data (temperature, description, and icon).
+  time: string | null; // Stores the local time of the location.
   location: string | null;
   forecast: Array<{
     date: string;
@@ -94,22 +97,23 @@ const initialState: WeatherState = {
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  reducers: {}, //  Empty here because no synchronous actions are defined.
+  extraReducers: (builder) => { // Handles state changes caused by asynchronous actions (fetchWeatherData).
+
     builder
-      .addCase(fetchWeatherData.pending, (state) => {
-        state.status = 'loading';
+      .addCase(fetchWeatherData.pending, (state) => { // When the API request is initiated.
+        state.status = 'loading'; // Sets status to 'loading'.
       })
       .addCase(fetchWeatherData.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = 'succeeded'; // When the API request succeeds.
         state.currentWeather = action.payload.currentWeather;
         state.time = action.payload.time;
         state.location = action.payload.location;
         state.forecast = action.payload.forecast;
       })
       .addCase(fetchWeatherData.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.payload as string;
+        state.status = 'failed'; // Sets status to 'failed'.
+        state.error = action.payload as string; // Updates error with the error message received.
       });
   },
 });
