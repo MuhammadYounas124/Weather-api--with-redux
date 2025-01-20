@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'; // A promise-based HTTP client used for making requests to external APIs (in this case, the Weather API).
 
 // Use your actual API key
-const WEATHER_API_KEY = 'fe84f3f94dda4b2e917171154242812';
+const WEATHER_API_KEY = 'fa51f237342c44b8a63184947242812';
 
 export const fetchWeatherData = createAsyncThunk(
   'weather/fetchWeatherData', // The name of the action.
